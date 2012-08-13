@@ -1,0 +1,14 @@
+{% extends "article/base.html" %}
+{% block body %}
+    </br>
+    {% if latest_article_list %}
+      {% for article in latest_article_list %}
+        <h3><a href="/{{ article.id }}/">{{article.title}}</a></h3>
+        <p>{{article.content}}<a href="/{{ article.id }}/">...</a></p>
+        <span class="label label-info">Published: {{article.pub_date}}</span>
+        </br></br>
+      {% endfor %}
+    {% else %}
+      <p>No posts to display!</p>
+    {% endif %}
+{% endblock body %}

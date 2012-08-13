@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+  <title>{% block title %}Django Blog{% endblock title %}</title>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap.min.css">
+  <style type='text/css'>
+    body {
+      background-image:url('http://dl.dropbox.com/u/93458715/tiny_grid.png');
+      font:0.8em Georgia;
+      line-height:140%
+      color:#424242;
+      margin: 0 0 15px 0;
+    }
+    #header {
+      background:#f8f8f8;
+      border-botton:1px solid #eee;
+      padding: 15px 0;
+      margin:0 0 20px 0;
+    }
+    #headerContent {
+      width:632px;
+      margin:0 auto;
+    }
+    a {
+      text-decoration:none;
+      color:#5e6469;
+    }
+    a:hover {
+      color:#424242;
+    }
+  </style>
+</HEAD>
+<BODY>
+  <div id='header'>
+    <div id='headerContent'>
+      <h1><a href='/'>Django Blog</a></h1>
+      <p>A simple Django-based blog</p>
+    </div>
+  </div>
+  <div id='body'>
+  {% block body %}
+  {% endblock body %}
+  </div>
+</BODY>
+</HTML>
