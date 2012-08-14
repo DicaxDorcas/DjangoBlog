@@ -30,9 +30,9 @@
           <p>{% bbcode article.getStub %}<a href="/{{ article.id }}/">...</a></p>
           <div class="insideInfo"> 
            <p class="alignleft"> Published: {{article.pub_date}}</p>
-           <p class="alignright"> 
+           <a class="alignright" href="/{{ article.id }}"> 
              {% get_comment_count for article as comment_count %}
-             {{comment_count}} Comments.</p> 
+             {{comment_count}} Comments.</a> 
           </div>
         </div>
         </br></br>
