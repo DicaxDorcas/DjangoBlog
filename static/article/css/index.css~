@@ -1,0 +1,17 @@
+.paginationLeft {
+  float:left;
+  border-top:1px solid #d7d7d7;
+  border-bottom:1px solid #d7d7d7;
+  border-right:1px solid #d7d7d7;
+  background:#f8f8f8;
+  color:#888;
+  padding:10px;
+}
+.paginationRight {
+   float:right;
+   border-top:1px solid #d7d7d7;
+   border-bottom:1px solid #d7d7d7;
+   border-left:1px solid #d7d7d7;
+   background:#f8f8f8;
+   color:#888;
+   padding:10px;

@@ -1,0 +1,26 @@
+{% extends 'article/base.html' %}
+{% load bbcode %}
+{% load comments %}
+{% block head %}
+<style type="text/css">
+.commentcontent {
+  float:center;
+  width:500px;
+  padding:5px;
+  color:#888;
+}
+</style>
+{% endblock head %}
+{% block header %}{% endblock header %}
+{% block body %}
+{% get_comment_list for article as comment_list %}
+{% for comment in comment_list %}
+  <div class="shell commentcontent">
+    <p>{% bbcode comment.comment %}</p>
+    <div class="insideInfo">
+      <p>Posted by: {{comment.user_name}} on comment.submit_date }}</p>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock body %}
+
