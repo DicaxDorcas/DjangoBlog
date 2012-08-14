@@ -48,10 +48,11 @@
 </div>
 </div>
 <div class="interact">
-<div class="shell commentcount">
-  {% get_comment_count for article as comment_count %}
-  <p>There are {{comment_count}} comments</p>
-</div>
+<a href="javascript:hideshow(document.getElementById('reply'))">
+  <div class="shell commentcount">
+    <p>Leave a comment...</p>
+  </div>
+</a>
 <div class="shell social">
   <span class='st_facebook_hcount' displayText='Facebook'></span>
   <span class='st_twitter_hcount' displayText='Tweet'></span>
@@ -60,6 +61,23 @@
 </div>
 </br></br></br>
 <a class="paginationRight" href="/">Back</a>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  document.getElementById('reply').style.display = "none";
+});
+function hideshow(which){
+  if (!document.getElementById)
+    return
+  if (which.style.display=="none")
+    which.style.display="block"
+  else
+    which.style.display="none"
+}
+</script>
+<div id="reply">
+TEST
+</div>
 {% render_comment_list for article %}
 
 {% endblock body %}
