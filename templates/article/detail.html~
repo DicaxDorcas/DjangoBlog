@@ -36,6 +36,12 @@
    color:#888;
    padding:10px;
 }
+.commentcontent {
+  float:center;
+  width:500px;
+  padding:5px;
+  color:#888;
+}
 </style>
 {% endblock head %}
 {% block body %}
@@ -75,7 +81,7 @@ function hideshow(which){
     which.style.display="none"
 }
 </script>
-<div id="reply">
+<div id="reply shell commentcontent">
   {% render_comment_form for article %}
 </div>
 {% render_comment_list for article %}
