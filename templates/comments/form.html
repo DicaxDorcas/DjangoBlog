@@ -1,0 +1,26 @@
+{% extends 'article/base.html' %}
+{% load bbcode %}
+{% load comments %}
+{% block head %}
+<style type="text/css">
+.commentcontent {
+  float:center;
+  width:500px;
+  padding:5px;
+  color:#888;
+}
+</style>
+{% endblock head %}
+{% block header %}{% endblock header %}
+{% block body %}
+<div class="shell commentcontent">
+  {% get_comment_form for article as form %}
+    <form action="{%comment_form_target %}" method="post">
+      {% csrf_token %}
+      {{ form }}
+      <input class="btn btn-primary" type="submit" name="submit" value="Post">
+      <input class="btn btn-primary" type="submit" name="preview" value="Preview">
+    </form>
+</div>
+{% endblock body %}
+

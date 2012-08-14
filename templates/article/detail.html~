@@ -76,7 +76,7 @@ function hideshow(which){
 }
 </script>
 <div id="reply">
-TEST
+  {% render_comment_form for article %}
 </div>
 {% render_comment_list for article %}
 

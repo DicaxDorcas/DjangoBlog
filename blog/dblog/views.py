@@ -1,5 +1,6 @@
 # Create your views here.
 from dblog.models import Article
+from django.core.context_processors import csrf
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -18,5 +19,7 @@ def index(request):
     return render_to_response('article/index.html', {'articles' : articles})
 
 def detail(request, article_id):
+    c = {}
+    c.update(csrf(request))
     a = get_object_or_404(Article, pk=article_id)
     return render_to_response('article/detail.html', {'article' : a})
