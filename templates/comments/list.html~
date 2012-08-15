@@ -5,22 +5,41 @@
 <style type="text/css">
 .commentcontent {
   float:center;
-  width:500px;
+  width:618px;
   padding:5px;
+  color:#888;
+}
+.commentauthor {
+  float:center;
+  width:618px;
+  padding:5px;
+  background:#FFFFB8;
+  color:#3E3E25;
+}
+.commentInfoAuthor {
+  border-bottom:1px solid #FFFFCC;
+  font-size:0.8em;
+  color:#B2B28F;
+}
+.commentInfo {
+  border-bottom:1px solid #eee;
+  font-size:0.8em;
   color:#888;
 }
 </style>
 {% endblock head %}
 {% block header %}{% endblock header %}
 {% block body %}
+</br>
 {% get_comment_list for article as comment_list %}
 {% for comment in comment_list %}
-  <div class="shell commentcontent">
-    <p>{% bbcode comment.comment %}</p>
-    <div class="insideInfo">
-      <p>Posted by: {{comment.user_name}} on comment.submit_date }}</p>
-    </div>
+  <div class="shell commentauthor">
+    <div class="commentInfoAuthor">
+        <p>Posted by: <a href="mailto:{{comment.email}}">{{comment.user_name}}</a> on {{comment.submit_date}}</p>
+    </div></br>
+    {% bbcode comment.comment %}
   </div>
+  </br>
   {% endfor %}
 {% endblock body %}
-
+{% block footer %}{% endblock footer %}
