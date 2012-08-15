@@ -6,6 +6,7 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
     content = models.TextField()
+    author = models.CharField(max_length=50)
     def getStub(self):
         return self.content[:300]
     def __unicode__(self):

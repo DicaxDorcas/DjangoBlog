@@ -33,12 +33,21 @@
 </br>
 {% get_comment_list for article as comment_list %}
 {% for comment in comment_list %}
+  {% ifequal article.author comment.username %}
+      <div class="shell commentauthor">
+    <div class="commentInfoAuthor">
+        <p>Posted by: <a href="mailto:{{comment.email}}">{{comment.user_name}}</a> on {{comment.submit_date}}</p>
+    </div></br>
+    {% bbcode comment.comment %}
+  </div>
+  {% else %}
   <div class="shell commentcontent">
     <div class="commentInfo">
         <p>Posted by: <a href="mailto:{{comment.email}}">{{comment.user_name}}</a> on {{comment.submit_date}}</p>
     </div></br>
     {% bbcode comment.comment %}
   </div>
+  {% endifequal %}
   </br>
   {% endfor %}
 {% endblock body %}
