@@ -18,12 +18,22 @@
   {% get_comment_form for article as form %}
     <form action="{%comment_form_target %}" method="post">
       {% csrf_token %}
+      
       {% for field in form %}
         {% ifequal field.name "name" %}
-         Name: <input id="id_name" type="text" name="name" maxlength="50" />
+          {% if perms.dblog %}
+            Logged in as {{ user.username }} (<a href="/admin/logout/">Not you?</a>). <input class="btn btn-primary" type="hidden" name="submit" value="{{user.username }}" value="Post" >
+</br>
+          {% else %}
+            Name: <input id="id_name" type="text" name="name" maxlength="50" />
+          {% endif %}
         {% else %}
         {% ifequal field.name "email" %}
+          {% if perms.dblog %}
+            <input type="hidden" name="email" value="{{ user.email }}" id="id_email" / >
+          {% else %}
             Email:  <input type="text" name="email" id="id_email" / >
+          {% endif %}
         {% else %}
         {% ifequal field.name "honeypot" %}{% else %}
         {% ifequal field.name "comment" %}
