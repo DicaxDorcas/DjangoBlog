@@ -123,6 +123,10 @@ INSTALLED_APPS = (
     'bbcode',
 )
 
+# ReCaptcha Keys
+RECAPTCHA_PUBLIC = '6LeDTdUSAAAAAGsVI8oYDAzdG8XS7xZ3UCTFXsBg'
+RECAPTCHA_PRIVATE = '6LeDTdUSAAAAAI1gy8vK6qUyt6WNmq49Y-JoXQt7'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
