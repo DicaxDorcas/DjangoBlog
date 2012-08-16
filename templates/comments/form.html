@@ -1,52 +1,14 @@
-{% extends 'article/base.html' %}
-{% load bbcode %}
-{% load comments %}
-{% block head %}
-<style type="text/css">
-.commentcontent {
-  float:center;
-  width:500px;
-  padding:5px;
-  margin:0 auto;
-  color:#888;
-}
-</style>
-{% endblock head %}
-{% block header %}{% endblock header %}
-{% block body %}
-<div class="shell commentcontent">
-  {% get_comment_form for article as form %}
-    <form action="{%comment_form_target %}" method="post">
-      {% csrf_token %}
-      
-      {% for field in form %}
-        {% ifequal field.name "name" %}
-          {% if perms.dblog %}
-            Logged in as {{ user.username }} (<a href="/admin/logout/">Not you?</a>). <input class="btn btn-primary" type="hidden" name="submit" value="{{user.username }}" value="Post" >
-</br>
-          {% else %}
-            Name: <input id="id_name" type="text" name="name" maxlength="50" />
-          {% endif %}
-        {% else %}
-        {% ifequal field.name "email" %}
-          {% if perms.dblog %}
-            <input type="hidden" name="email" value="{{ user.email }}" id="id_email" / >
-          {% else %}
-            Email:  <input type="text" name="email" id="id_email" / >
-          {% endif %}
-        {% else %}
-        {% ifequal field.name "honeypot" %}{% else %}
-        {% ifequal field.name "comment" %}
-          <textarea id="id_comment" rows="4" cols="65" name="comment"></textarea>
-        {% else %}
-        {% ifequal field.name "url" %}{% else %}
-        {% ifequal field.name "submit" %}
-          <input class="btn btn-primary" type="submit" name="submit" value="Post"></br>
-        {% else %}{{ field }}{% endifequal %}{% endifequal %}{% endifequal %}{% endifequal %}{% endifequal %}{% endifequal %}
-      {% endfor %}
-      <input class="btn btn-primary" type="submit" name="submit" value="Post">
-      <input class="btn btn-primary" type="submit" name="preview" value="Preview">
-    </form>
+{% load bbcode %}{% load comments %}<div class="shell commentcontent">{% get_comment_form for article as form %}
+  <form action="{%comment_form_target %}" method="post">{% csrf_token %}{% for field in form %}{% ifequal field.name "name" %}{% if perms.dblog %}
+    Logged in as {{ user.username }} (<a href="/admin/logout/">Not you?</a>). <input class="btn btn-primary" type="hidden" name="submit" value="{{user.username }}" value="Post" ></br>{% else %}
+    Name: <input id="id_name" type="text" name="name" maxlength="50" />{% endif %}{% else %}{% ifequal field.name "email" %}{% if perms.dblog %}
+    <input type="hidden" name="email" value="{{ user.email }}" id="id_email" / >{% else %}
+    Email:  <input type="text" name="email" id="id_email" / >{% endif %}{% else %}{% ifequal field.name "honeypot" %}{% else %}{% ifequal field.name "comment" %}
+    <textarea id="id_comment" rows="4" cols="1065" name="comment"></textarea>{% else %}{% ifequal field.name "url" %}{% else %}
+    {{ field }}{% endifequal %}{% endifequal %}{% endifequal %}{% endifequal %}{% endifequal %}{% endfor %}
+      <center>
+        <input class="btn btn-primary" type="submit" name="submit" value="Post">
+        <input class="btn btn-primary" type="submit" name="preview" value="Preview">
+      </center>
+  </form>
 </div>
-{% endblock body %}
-{% block footer %}{% endblock footer %}

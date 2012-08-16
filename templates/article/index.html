@@ -1,47 +1,15 @@
-{% extends "article/base.html" %}
-{% load comments %}
-{% load bbcode %}
-{% block head %}
-<style type="text/css">
-.paginationLeft {
-  float:left;
-  border-top:1px solid #d7d7d7;
-  border-bottom:1px solid #d7d7d7;
-  border-right:1px solid #d7d7d7;
-  background:#f8f8f8;
-  color:#888;
-  padding:10px;
-}
-.paginationRight {
-   float:right;
-   border-top:1px solid #d7d7d7;
-   border-bottom:1px solid #d7d7d7;
-   border-left:1px solid #d7d7d7;
-   background:#f8f8f8;
-   color:#888;
-   padding:10px;
-}
-</style>
-{% endblock head %}
-{% block body %}
-      {% for article in articles %}
-       <div class="shell content"> 
-          <h3><a href="/{{ article.id }}/">{{article.title}}</a></h3>
-          <p>{% bbcode article.getStub %}<a href="/{{ article.id }}/">...</a></p>
-          <div class="insideInfo"> 
-           <p class="alignleft"> Published: {{article.pub_date}}</p>
-           <a class="alignright" href="/{{ article.id }}"> 
-             {% get_comment_count for article as comment_count %}
-             {{comment_count}} Comments.</a> 
-          </div>
-        </div>
-        </br></br>
-      {% endfor %}
+{% extends "article/base.html" %}{% load comments %}{% load bbcode %}{% block head %}
+  <link href="http://dl.dropbox.com/u/93458715/index.css" rel="stylesheet" type="text/css" />{% endblock head %}{% block body %}{% for article in articles %}
+  <div class="shell content"> 
+    <h3>
+      <a href="/{{ article.id }}/">{{article.title}}</a>
+    </h3>
+    <p>{% bbcode article.getStub %}<a href="/{{ article.id }}/">...</a></p>
+    <div class="insideInfo"> 
+      <p class="alignleft"> Published: {{article.pub_date}}</p>
+      <a class="alignright" href="/{{ article.id }}">{% get_comment_count for article as comment_count %}{{comment_count}} Comments.</a> 
+    </div>
+  </div></br></br>{% endfor %}{% if articles.has_next %}
 
-      {% if articles.has_next %}
-        <a class="paginationLeft" href="?page={{ articles.next_page_number }}">Older</a>
-      {% endif %}
-      {% if articles.has_previous %}
-        <a class="paginationRight" href="?page={{articles.previous_page_number }}">Newer</a>
-      {% endif %}
-{% endblock body %}
+<a class="paginationLeft" href="?page={{ articles.next_page_number }}">Older</a>{% endif %}{% if articles.has_previous %}
+<a class="paginationRight" href="?page={{articles.previous_page_number }}">Newer</a>{% endif %}{% endblock body %}

@@ -20,4 +20,3 @@ class Comments(models.Model):
     content = models.TextField()
     def __unicode__(self):
         return self.topic
- 

@@ -1,89 +1,47 @@
-{% extends "article/base.html" %}
-{% load bbcode %}
-{% load comments %}
-{% block title %}{{article.title}} | Django Blog {% endblock title %}
-{% block head %}
+{% extends "article/base.html" %}{% load bbcode %}{% load comments %}{% block title %}{{article.title}} | DicaxDorcas {% endblock title %}{% block head %}
+  <link href="http://dl.dropbox.com/u/93458715/detail.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript">var switchTo5x=true;</script>
   <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-  <script type="text/javascript">stLight.options({publisher: "ur-bc9797a7-347e-633-8cf5-dd9137ed014"}); </script>
-<style type="text/css">
-.inner {
-  padding: 15px 5px 15px;
-}
-.interact {
-  margin:15 auto;
-  width:630px;
-}
-.social {
-  float:right; 
-  width:280px;
-  height:25px;
-  padding:5px;
-}
-.commentcount {
-  float:left;
-  width:320px;
-  height:25px;
-  padding:5px;
-  color:#888;
-}
-.paginationRight {
-   float:right;
-   border-top:1px solid #d7d7d7;
-   border-bottom:1px solid #d7d7d7;
-   border-left:1px solid #d7d7d7;
-   background:#f8f8f8;
-   color:#888;
-   padding:10px;
-}
-.commentcontent {
-  float:center;
-  width:500px;
-  padding:5px;
-  color:#888;
-}
-</style>
-{% endblock head %}
-{% block body %}
+  <script type="text/javascript">stLight.options({publisher: "ur-bc9797a7-347e-633-8cf5-dd9137ed014"});</script>{% endblock head %}
 
+{% block body %}
 <div class="shell content">
-<h3><a href="/{{ article.id }}/">{{article.title}}</a></h3>
-<p>{% bbcode article.content %}</p>
-<div class="insideInfo">
-<p>Published: {{article.pub_date}}</p>
-</div>
-</div>
-<div class="interact">
-<a href="javascript:hideshow(document.getElementById('reply'))">
-  <div class="shell commentcount">
-    <p>Leave a comment...</p>
+  <h3><a href="/{{ article.id }}/">{{article.title}}</a></h3>
+  <p>{% bbcode article.content %}</p>
+  <div class="insideInfo">
+    <p>Published: {{article.pub_date}}</p>
   </div>
-</a>
-<div class="shell social">
-  <span class='st_facebook_hcount' displayText='Facebook'></span>
-  <span class='st_twitter_hcount' displayText='Tweet'></span>
-  <span class='st_email_hcount' displayText='Email'></span>
 </div>
-</div>
-</br></br></br>
-<a class="paginationRight" href="/">Back</a>
+
+<div class="interact">
+  <a href="javascript:hideshow(document.getElementById('reply'))">
+    <div class="shell commentcount">
+      <p>Leave a comment...</p>
+    </div>
+  </a>
+  <div class="shell social">
+    <span class='st_facebook_hcount' displayText='Facebook'></span>
+    <span class='st_twitter_hcount' displayText='Tweet'></span>
+    <span class='st_email_hcount' displayText='Email'></span>
+  </div>
+</div></br></br></br>
 
 <script type="text/javascript">
-$(document).ready(function() {
-  document.getElementById('reply').style.display = "none";
-});
-function hideshow(which){
-  if (!document.getElementById)
-    return
-  if (which.style.display=="none")
-    which.style.display="block"
-  else
-    which.style.display="none"
-}
+  $(document).ready(function() {
+    document.getElementById('reply').style.display = "block";
+  });
+  function hideshow(which){
+    if (!document.getElementById)
+      return
+    if (which.style.display=="none")
+      which.style.display="block"
+    else
+      which.style.display="none"
+  }
 </script>
-<div id="reply shell commentcontent">
+
+<div id="reply">
   {% render_comment_form for article %}
 </div>
 {% render_comment_list for article %}
-
 {% endblock body %}

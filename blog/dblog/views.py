@@ -1,8 +1,8 @@
 # Create your views here.
 from dblog.models import Article
-from django.core.context_processors import csrf
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from recaptcha_works.decorators import fix_recaptcha_remote_ip
 
 def index(request):
     latest_article_list = Article.objects.all().order_by('-pub_date')
@@ -17,8 +17,7 @@ def index(request):
         articles = paginator.page(paginator.num_pages)
     return render_to_response('article/index.html', {'articles' : articles})
 
+@fix_recaptcha_remote_ip
 def detail(request, article_id):
-    c = {}
-    c.update(csrf(request))
     a = get_object_or_404(Article, pk=article_id)
     return render(request, 'article/detail.html', {'article' : a})

@@ -1,82 +1,32 @@
-{% load bbcode %}
-<HTML>
+{% load bbcode %}<HTML>
 <HEAD>
   <title>{% block title %}DicaxDorcas{% endblock title %}</title>
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap.min.css">
-  <style type="text/css">
-body {
-  background-image:url('http://dl.dropbox.com/u/93458715/tiny_grid.png');
-  font:0.8em Georgia;
-  line-height:140%
-  color:#424242;
-  margin: 0 0 15px 0;
-}
-.shell {
-  border-style:solid;
-  border-color:#d7d7d7;
-  border-width:1px;
-  background:#f8f8f8;
-}
-.content {
-  width:630px;
-  padding:10px;
-  margin: 0 auto;
-}
-.insideInfo {
-  border-top:1px solid #eee;
-  padding:5px 10px;
-  font-size:0.8em;
-  color:#888;
-}
-#header {
-  background:#f8f8f8;
-  border-bottom:1px solid #eee;
-  padding: 15px 0;
-  margin:0 0 20px 0;
-}
-#headerContent {
-  width:632px;
-  margin:0 auto;
-}
-a {
-  text-decoration:none;
-  color:#5e6469;
-}
-a:hover {
-  color:#424242;
-}
-.alignleft {
-  float:left;
-}
-.alignright {
-  float:right;
-}
-#footer {
-  float:center;
-  color:#424242;
-}
-  </style>
-{% block head %}
-{% endblock head %}
-</HEAD>
+  <link href="http://dl.dropbox.com/u/93458715/base.css" rel="stylesheet" type="text/css" />
+{% block head %}{% endblock head %}</HEAD>
 <BODY>
-<a href="https://github.com/dicaxdorcas"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-{% block header %}
-  <div id='header'>
-    <div id='headerContent'>
-      <h1><a href='/'>DicaxDorcas</a></h1>
-      <p>Freelance Developer and Nocturnal Being.</p>
-    </div>
+
+<!-- Fork Me Banner -->
+<a href="https://github.com/dicaxdorcas">
+  <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+</a>
+<!-------------------->
+
+{% block header %}<div id='header'>
+  <div id='headerContent'>
+    <h1><a href='/'>DicaxDorcas</a></h1>
+    <p>Freelance Developer and Nocturnal Being.</p>
   </div>
-{% endblock header %}
-  <div id='body'>
-  {% block body %}
-  {% endblock body %}
-  </div>
-  {% block footer %}
-  <div id='footer'>
-    <center><p>All rights reserved. <a href="https://github.com/DicaxDorcas/DjangoBlog">Source available here.</a></p></center>
-  </div> 
-  {% endblock footer %} 
+</div>{% endblock header %}
+<div id='body'>
+{% block body %}{% endblock body %}
+</div>
+<div id='footer'>
+  <p>
+     {% block footer %}All rights reserved. <a href="https://github.com/DicaxDorcas/DjangoBlog">Source available here.{% endblock footer %}
+    </a>
+  </p>
+</div> 
+  
 </BODY>
 </HTML>
