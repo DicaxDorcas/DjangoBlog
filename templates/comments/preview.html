@@ -1,0 +1,43 @@
+{% extends "article/base.html" %}
+{% load i18n %}
+{% block title %}Comment Preview | DicaxDorcas{% endblock %}
+{% block head %}
+<link href="http://dl.dropbox.com/u/93458715/preview.css" rel="stylesheet" type="text/css" />{% endblock head %}
+{% block body %}
+  {% load comments %}
+<div class="shell content">
+  <form action="{% comment_form_target %}" method="post">{% csrf_token %}
+    {% if next %}<div><input type="hidden" name="next" value="{{ next }}" /></div>{% endif %}
+    {% if form.errors %}
+    <h3>{% blocktrans count counter=form.errors|length %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</h3>
+    {% else %}
+    <h3>{% trans "Preview your comment" %}</h3>
+      <blockquote>{{ comment|linebreaks }}</blockquote>
+      <p>
+      {% trans "and" %} <input type="submit" name="submit" class="submit-post" value="{% trans "Post your comment" %}" id="submit" /> {% trans "or make changes" %}:
+      </p>
+    {% endif %}
+    {% for field in form %}
+      {% if field.is_hidden %}
+        <div>{{ field }}</div>
+      {% else %}
+        {% if field.errors %}{{ field.errors }}{% endif %}
+        <p
+          {% if field.errors %} class="error"{% endif %}
+          {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}
+          {% if perms.dblog %} 
+          {% ifequal field.name "name" %} style="display:none;"{% endifequal %}
+          {% ifequal field.name "email" %} style="display:none;"{% endifequal %}
+          {% endif %}
+          {% ifequal field.name "url" %} style="display:none;"{% endifequal %}>
+          {{ field.label_tag }} {{ field }}
+        </p>
+      {% endif %}
+    {% endfor %}
+    <p class="submit">
+    <input type="submit" name="submit" class="btn btn-mini btn-primary" value="{% trans "Post" %}" />
+    <input type="submit" name="preview" class="btn btn-mini" value="{% trans "Preview" %}" />
+    </p>
+  </form>
+</div></br>
+{% endblock body %}
