@@ -5,15 +5,18 @@
   <script type="text/javascript">stLight.options({publisher: "ur-bc9797a7-347e-633-8cf5-dd9137ed014"});</script>{% endblock head %}
 
 {% block body %}
-<div class="shell content">
+<div class="shell content dfix">
   <h3><a href="/{{ article.id }}/">{{article.title}}</a></h3>
   <p>{% bbcode article.content %}</p>
   <div class="insideInfo">
+    <p>{% for tag in article.gettags %}
+      <a href="/tag/{{tag}}" alt="{{tag}}" title="{{tag}}">{{tag}}</a>,&nbsp;
+    {% endfor %}</p>
     <p>Published: {{article.pub_date}}</p>
   </div>
 </div>
 
-<div class="interact">
+<div class="interact inner">
   <a href="javascript:hideshow(document.getElementById('reply'))">
     <div class="shell commentcount">
       <p>Leave a comment...</p>
@@ -24,12 +27,9 @@
     <span class='st_twitter_hcount' displayText='Tweet'></span>
     <span class='st_email_hcount' displayText='Email'></span>
   </div>
-</div></br></br></br>
+</div>
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    document.getElementById('reply').style.display = "block";
-  });
   function hideshow(which){
     if (!document.getElementById)
       return

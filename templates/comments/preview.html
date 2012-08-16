@@ -5,7 +5,7 @@
 <link href="http://dl.dropbox.com/u/93458715/preview.css" rel="stylesheet" type="text/css" />{% endblock head %}
 {% block body %}
   {% load comments %}
-<div class="shell content">
+<div class="shell content article">
   <form action="{% comment_form_target %}" method="post">{% csrf_token %}
     {% if next %}<div><input type="hidden" name="next" value="{{ next }}" /></div>{% endif %}
     {% if form.errors %}
@@ -39,5 +39,5 @@
     <input type="submit" name="preview" class="btn btn-mini" value="{% trans "Preview" %}" />
     </p>
   </form>
-</div></br>
+</div>
 {% endblock body %}

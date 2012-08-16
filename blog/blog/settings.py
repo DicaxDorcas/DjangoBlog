@@ -121,6 +121,7 @@ INSTALLED_APPS = (
     'dblog',
     'pages',
     'bbcode',
+    'tagging',
 )
 
 # ReCaptcha Keys

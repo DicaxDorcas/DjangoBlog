@@ -1,6 +1,6 @@
 {% extends "article/base.html" %}{% load comments %}{% load bbcode %}{% block head %}
   <link href="http://dl.dropbox.com/u/93458715/index.css" rel="stylesheet" type="text/css" />{% endblock head %}{% block body %}{% for article in articles %}
-  <div class="shell content"> 
+  <div class="shell content article"> 
     <h3>
       <a href="/{{ article.id }}/">{{article.title}}</a>
     </h3>
@@ -9,7 +9,7 @@
       <p class="alignleft"> Published: {{article.pub_date}}</p>
       <a class="alignright" href="/{{ article.id }}">{% get_comment_count for article as comment_count %}{{comment_count}} Comments.</a> 
     </div>
-  </div></br></br>{% endfor %}{% if articles.has_next %}
+  </div>{% endfor %}{% if articles.has_next %}
 
 <a class="paginationLeft" href="?page={{ articles.next_page_number }}">Older</a>{% endif %}{% if articles.has_previous %}
 <a class="paginationRight" href="?page={{articles.previous_page_number }}">Newer</a>{% endif %}{% endblock body %}

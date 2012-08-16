@@ -5,7 +5,7 @@
   <div class="shell commentcontent">
     <div class="commentInfo">
         <p>Posted by: <a href="mailto:{{comment.email}}">{{comment.user_name}}</a> on {{comment.submit_date}}</p>
-    </div></br>
-      {% bbcode comment.comment %}
-</div></br>{% endfor %}
+    </div>
+      <p class="spaceman">{% bbcode comment.comment %}</p>
+</div>{% endfor %}
 

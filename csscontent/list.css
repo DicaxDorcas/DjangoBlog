@@ -1,12 +1,16 @@
 .commentcontent {
   width:618px;
-  padding:5px;
-  margin:0 auto;
+  padding:5px 5px 5px;
+  margin:15px auto;
   align:center;
-  color:#888;
+  color:#424242;
 }
 .commentInfo {
   border-bottom:1px solid #eee;
   font-size:0.8em;
+  margin:15px;
   color:#888;
+}
+.spaceman {
+  padding:0 5px 5px 12px;
 }

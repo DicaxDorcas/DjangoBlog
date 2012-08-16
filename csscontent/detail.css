@@ -1,8 +1,11 @@
 .inner {
-  padding: 15px 5px 15px;
+  padding:23px;
+}
+.dfix {
+  padding:20px;
 }
 .interact {
-  margin:15 auto;
+  margin:30px auto;
   width:630px;
 }
 .social {

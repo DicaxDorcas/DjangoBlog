@@ -1,4 +1,5 @@
 from django.db import models
+from tagging.fields import TagField
 # Create your models here.
 
 
@@ -7,6 +8,11 @@ class Article(models.Model):
     pub_date = models.DateTimeField('date published', auto_now_add=True)
     content = models.TextField()
     author = models.CharField(max_length=50)
+    tags = TagField()
+    def set_tags(self, tags):
+        Tag.objects.update_tags(self, tags)
+    def get_tags(self, tags):
+        return Tag.objects.get_for_object(self)
     def getStub(self):
         return self.content[:300]
     def __unicode__(self):
