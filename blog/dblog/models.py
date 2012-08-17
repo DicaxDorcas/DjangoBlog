@@ -1,5 +1,6 @@
 from django.db import models
 from tagging.fields import TagField
+from tagging.models import Tag
 # Create your models here.
 
 
@@ -11,7 +12,7 @@ class Article(models.Model):
     tags = TagField()
     def set_tags(self, tags):
         Tag.objects.update_tags(self, tags)
-    def get_tags(self, tags):
+    def get_tags(self):
         return Tag.objects.get_for_object(self)
     def getStub(self):
         return self.content[:300]
