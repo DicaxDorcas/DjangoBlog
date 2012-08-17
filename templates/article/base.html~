@@ -2,7 +2,7 @@
 <HEAD>
   <title>{% block title %}DicaxDorcas{% endblock title %}</title>
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap.min.css">
-  <link href="/base.css" rel="stylesheet" type="text/css" />
+  <link href="http://dl.dropbox.com/u/93458715/base.css" rel="stylesheet" type="text/css" />
 {% block head %}{% endblock head %}</HEAD>
 <BODY>
 
@@ -16,6 +16,9 @@
   <div id='headerContent'>
     <h1><a href='/'>DicaxDorcas</a></h1>
     <p>Freelance Developer and Nocturnal Being.</p>
+    <div id='navbar'>
+      
+    </div>
   </div>
 </div>{% endblock header %}
 <div id='body'>
