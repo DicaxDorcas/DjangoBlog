@@ -1,10 +1,10 @@
 # Django settings for blog project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Ross Walker', 'ross.walker@languagelab.com'),
+    ('Ross Walker', 'webmaster@rosswalker.me'),
 )
 
 MANAGERS = ADMINS
@@ -119,7 +119,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'dblog',
-    'pages',
+    'project',
     'bbcode',
     'tagging',
 )

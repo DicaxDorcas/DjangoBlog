@@ -3,6 +3,25 @@
   <title>{% block title %}DicaxDorcas{% endblock title %}</title>
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap.min.css">
   <link href="http://dl.dropbox.com/u/93458715/base.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+  #navbar {
+    position:relative;
+    left:200px;
+    bottom:43px;
+  }
+  .navpill {
+    padding:8px 10px;
+    background:#F6F6F6;
+    border-top:5px solid #eee;
+    border-left:1px solid #eee;
+    border-right:1px solid #eee;
+  }
+  .navpill:hover {
+    background:#F1F1F1;
+    border-top:5px solid #ddd;
+  }
+  
+  </style>
 {% block head %}{% endblock head %}</HEAD>
 <BODY>
 
@@ -12,15 +31,21 @@
 </a>
 <!-------------------->
 
-{% block header %}<div id='header'>
+{% block header %}
+
+<div id='header'>
   <div id='headerContent'>
     <h1><a href='/'>DicaxDorcas</a></h1>
     <p>Freelance Developer and Nocturnal Being.</p>
-    <div id='navbar'>
-      
-    </div>
+    
   </div>
-</div>{% endblock header %}
+</div>
+<div id='navbar'>
+  <a class='navpill' href="/">Home</a>
+  <a class='navpill' href="/tags/">Tags</a>
+  <a class='navpill' href="/projects/">Projects</a>
+</div>
+{% endblock header %}
 <div id='body'>
 {% block body %}{% endblock body %}
 </div>
