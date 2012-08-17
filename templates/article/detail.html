@@ -8,7 +8,7 @@
   <h3><a href="/{{ article.id }}/">{{article.title}}</a></h3>
   <p>{% bbcode article.content %}</p>
   <div class="insideInfo">
-    <p>Posted {{article.pub_date|timesince}} ago.</br>Tags: {% for tag in article.get_tags %}
+    <p>{{article.pub_date|timesince}} ago</br>Tags: {% for tag in article.get_tags %}
       <a href="/tag/{{tag}}" alt="{{tag}}" title="{{tag}}">{{tag}}</a>,&nbsp;{% endfor %}</p>
   </div>
 </div>

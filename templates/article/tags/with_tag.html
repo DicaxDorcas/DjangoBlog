@@ -8,7 +8,7 @@
   <div class="row-{% cycle odd,even %}">
     <p>
       <a href="/{{article.id}}/">{{article.title}}</a>
-      ({{article.pub_date}})
+      ({{article.pub_date|timesince}} ago)
     </p>
 </div></p>
 {% endfor %}

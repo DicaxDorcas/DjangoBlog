@@ -6,7 +6,7 @@
     </h3>
     <p>{% bbcode article.getStub %}<a href="/{{ article.id }}/">...</a></p>
     <div class="insideInfo"> 
-      <p class="alignleft"><p>Posted {{article.pub_date|timesince}} ago.</br>Tags: {% for tag in article.get_tags %}
+      <p class="alignleft"><p>{{article.pub_date|timesince}} ago</br>Tags: {% for tag in article.get_tags %}
       <a href="/tag/{{tag}}" alt="{{tag}}" title="{{tag}}">{{tag}}</a>,&nbsp;{% endfor %}</p></p>
       <a class="alignright" href="/{{ article.id }}">{% get_comment_count for article as comment_count %}{{comment_count}} Comments.</a> 
     </div>
