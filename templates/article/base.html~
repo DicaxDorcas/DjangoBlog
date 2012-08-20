@@ -1,27 +1,10 @@
 {% load bbcode %}<HTML>
 <HEAD>
   <title>{% block title %}DicaxDorcas{% endblock title %}</title>
+  <meta name="description" content="Personal website of Ross Walker, freelance developer and nocturnal owl." />
+  <meta name="keywords" content="development, ross walker, freelance, python, django, bukkit, dicaxdorcas, rossjolliffe," />
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap.min.css">
   <link href="http://dl.dropbox.com/u/93458715/base.css" rel="stylesheet" type="text/css" />
-  <style type="text/css">
-  #navbar {
-    position:relative;
-    left:200px;
-    bottom:43px;
-  }
-  .navpill {
-    padding:8px 10px;
-    background:#F6F6F6;
-    border-top:5px solid #eee;
-    border-left:1px solid #eee;
-    border-right:1px solid #eee;
-  }
-  .navpill:hover {
-    background:#F1F1F1;
-    border-top:5px solid #ddd;
-  }
-  
-  </style>
 {% block head %}{% endblock head %}</HEAD>
 <BODY>
 
