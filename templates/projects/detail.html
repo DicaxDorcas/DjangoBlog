@@ -1,0 +1,22 @@
+{% extends "article/base.html" %}{% load bbcode %}{% block title %}{{project.title}} | DicaxDorcas {% endblock title %}{% block head %}
+  <link href="http://dl.dropbox.com/u/93458715/detail.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "ur-bc9797a7-347e-633-8cf5-dd9137ed014"});</script>{% endblock head %}
+{% block body %}
+<div class="shell content dfix">
+  <h3><a href="/projects/{{ project.id }}/">{{project.title}}</a></h3>
+  <p>{% bbcode project.content %}</p>
+  <div class="insideInfo">
+    <p>Language: {{project.language}}</br>GitHub: <a href="{{project.url}}">{{project.url}}</a></p>
+  </div>
+</div>
+
+<div class="interact inner">
+  <div class="shell social">
+    <span class='st_facebook_hcount' displayText='Facebook'></span>
+    <span class='st_twitter_hcount' displayText='Tweet'></span>
+    <span class='st_email_hcount' displayText='Email'></span>
+  </div>
+</div>
+{% endblock body %}
