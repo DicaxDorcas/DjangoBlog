@@ -1,5 +1,5 @@
 {% extends "article/base.html" %}{% load comments %}{% load cache %}{% load bbcode %}{% block head %}
-  <link href="/content/index.css" rel="stylesheet" type="text/css" />{% endblock head %}{% block body %}{% cache 1800 blog_posts %}{% for article in articles %}
+  <style type='text/css'>.paginationLeft{float:left;border-top:1px solid #d7d7d7;border-bottom:1px solid #d7d7d7;border-right:1px solid #d7d7d7;background:#f8f8f8;color:#888;padding:10px}.paginationRight{float:right;border-top:1px solid #d7d7d7;border-bottom:1px solid #d7d7d7;border-left:1px solid #d7d7d7;background:#f8f8f8;color:#888;padding:10px}</style>{% endblock head %}{% block body %}{% cache 1800 blog_posts %}{% for article in articles %}
   <div class="shell content article"> 
     <h3>
       <a href="/{{ article.id }}/">{{article.title}}</a>
