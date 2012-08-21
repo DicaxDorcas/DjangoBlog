@@ -1,7 +1,6 @@
 {% load bbcode %}
 {% load comments %}<link href="http://dl.dropbox.com/u/93458715/list.css" rel="stylesheet" type="text/css" />
 </br>{% get_comment_list for article as comment_list %}{% for comment in comment_list %}
-
   <div class="shell commentcontent">
     <div class="commentInfo">
         <p>Posted by: <a href="mailto:{{comment.email}}">{{comment.user_name}}</a> on {{comment.submit_date}}</p>
