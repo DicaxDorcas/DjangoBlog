@@ -1,9 +1,10 @@
-{% extends "article/base.html" %}{% load bbcode %}{% load comments %}{% block title %}{{article.title}} | DicaxDorcas {% endblock title %}{% block head %}
+{% extends "article/base.html" %}{% load bbcode %}{% load comments %}{% load cache %}{% block title %}{{article.title}} | DicaxDorcas {% endblock title %}{% block head %}
   <link href="http://dl.dropbox.com/u/93458715/detail.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript">var switchTo5x=true;</script>
   <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
   <script type="text/javascript">stLight.options({publisher: "ur-bc9797a7-347e-633-8cf5-dd9137ed014"});</script>{% endblock head %}
 {% block body %}
+{% cache 1800 detailed_post %}
 <div class="shell content dfix">
   <h3><a href="/{{ article.id }}/">{{article.title}}</a></h3>
   <p>{% bbcode article.content %}</p>
@@ -12,7 +13,7 @@
       <a href="/tag/{{tag}}" alt="{{tag}}" title="{{tag}}">{{tag}}</a>,&nbsp;{% endfor %}</p>
   </div>
 </div>
-
+{% endcache %}
 <div class="interact inner">
   <a href="javascript:hideshow(document.getElementById('reply'))">
     <div class="shell commentcount">

@@ -1,16 +1,16 @@
-{% extends "article/base.html" %}{% load comments %}{% load bbcode %}{% block head %}
-  <link href="http://dl.dropbox.com/u/93458715/index.css" rel="stylesheet" type="text/css" />{% endblock head %}{% block body %}{% for article in articles %}
+{% extends "article/base.html" %}{% load comments %}{% load cache %}{% load bbcode %}{% block head %}
+  <link href="http://dl.dropbox.com/u/93458715/index.css" rel="stylesheet" type="text/css" />{% endblock head %}{% block body %}{% cache 1800 blog_posts %}{% for article in articles %}
   <div class="shell content article"> 
     <h3>
       <a href="/{{ article.id }}/">{{article.title}}</a>
     </h3>
     <p>{% bbcode article.getStub %}<a href="/{{ article.id }}/">...</a></p>
     <div class="insideInfo"> 
-      <p class="alignleft"><p>Posted {{article.pub_date|timesince}} ago.</br>Tags: {% for tag in article.get_tags %}
+      <p class="alignleft"><p>{{article.pub_date|timesince}} ago</br>Tags: {% for tag in article.get_tags %}
       <a href="/tag/{{tag}}" alt="{{tag}}" title="{{tag}}">{{tag}}</a>,&nbsp;{% endfor %}</p></p>
       <a class="alignright" href="/{{ article.id }}">{% get_comment_count for article as comment_count %}{{comment_count}} Comments.</a> 
     </div>
-  </div>{% endfor %}{% if articles.has_next %}
+  </div>{% endfor %}{% endcache %}{% if articles.has_next %}
 
 <a class="paginationLeft" href="?page={{ articles.next_page_number }}">Older</a>{% endif %}{% if articles.has_previous %}
 <a class="paginationRight" href="?page={{articles.previous_page_number }}">Newer</a>{% endif %}{% endblock body %}

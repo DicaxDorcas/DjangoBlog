@@ -1,5 +1,6 @@
-{% extends "article/base.html" %}{% load bbcode %}{% block title %}Projects | DicaxDorcas{% endblock %}{% block head %}
+{% extends "article/base.html" %}{% load bbcode %}{% load cache %}{% block title %}Projects | DicaxDorcas{% endblock %}{% block head %}
   <link href="http://dl.dropbox.com/u/93458715/index.css" rel="stylesheet" type="text/css" />{% endblock head %}{% block body %}
+{% cache 1800 latest_projects %}
 {% for project in projects %}
   <div class="shell content article"> 
     <h3>
@@ -9,5 +10,5 @@
     <div class="insideInfo"> 
       <p class="alignleft"><p>Language: {{project.language}}</br>GitHub: <a href="{{project.url}}">{{project.url}}</a></p>
     </div>
-  </div>{% endfor %}
+  </div>{% endfor %}{% endcache %}
 {% endblock %}

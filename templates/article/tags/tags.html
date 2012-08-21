@@ -1,10 +1,12 @@
 {% extends 'article/base.html' %}{% block title %}Blog Tags | DicaxDorcas{% endblock %}{% block body %}
-{% load tag_cloud %}{% tag_cloud_for_model dblog.Article as tags with steps=6 distribution=log %}
+{% load tag_cloud %}{% load cache %}{% tag_cloud_for_model dblog.Article as tags with steps=6 distribution=log %}
 {% if tags %}
+{% cache 1800 blog_tags %}
 <div class="shell content article">
   <h3><a href="/tags/">Blog Tags</a></h3>{% for tag in tags %}
   <span class="tag-{{tag.font_size|add:"2"}}">
   <a href="/tag/{{tag.name|slugify}}/">{{tag.name}}</a> 
 </span> {% endfor %}
 </div><!-- tag-cloud end -->
+{% endcache %}
 {% endif %}{% endblock %}
