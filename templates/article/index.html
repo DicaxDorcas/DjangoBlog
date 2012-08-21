@@ -1,5 +1,5 @@
 {% extends "article/base.html" %}{% load comments %}{% load cache %}{% load bbcode %}{% block head %}
-  <link href="http://dl.dropbox.com/u/93458715/index.css" rel="stylesheet" type="text/css" />{% endblock head %}{% block body %}{% cache 1800 blog_posts %}{% for article in articles %}
+  <link href="/content/index.css" rel="stylesheet" type="text/css" />{% endblock head %}{% block body %}{% cache 1800 blog_posts %}{% for article in articles %}
   <div class="shell content article"> 
     <h3>
       <a href="/{{ article.id }}/">{{article.title}}</a>
