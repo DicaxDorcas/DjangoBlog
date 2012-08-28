@@ -1,0 +1,52 @@
+[
+    {
+        "pk": 1,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "sdfsd"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "tagging.tag",
+        "fields": {
+            "name": "sdfsdf"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 1,
+            "object_id": 1,
+            "content_type": 10
+        }
+    },
+    {
+        "pk": 2,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 2,
+            "object_id": 1,
+            "content_type": 10
+        }
+    },
+    {
+        "pk": 3,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 1,
+            "object_id": 2,
+            "content_type": 10
+        }
+    },
+    {
+        "pk": 4,
+        "model": "tagging.taggeditem",
+        "fields": {
+            "tag": 2,
+            "object_id": 2,
+            "content_type": 10
+        }
+    }
+]
