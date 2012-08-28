@@ -1,4 +1,4 @@
-{% extends "article/base.html" %}{% load bbcode %}{% load comments %}{% load cache %}{% block title %}{{article.title}} | DicaxDorcas {% endblock title %}{% block head %}
+{% extends "article/base.html" %}{% load bbcode %}{% load markup %}{% load comments %}{% load cache %}{% block title %}{{article.title}} | DicaxDorcas {% endblock title %}{% block head %}
   <link href="/content/detail.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript">var switchTo5x=true;</script>
   <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
@@ -7,7 +7,7 @@
 {% cache 1800 detailed_post %}
 <div class="shell content dfix">
   <h3><a href="/{{ article.slug}}.{{ article.id }}">{{article.title}}</a></h3>
-  <p>{% bbcode article.content %}</p>
+  <p>{% ifequal article.flair "bbcode" %}{% bbcode article.content %}{% endifequal %}{% ifequal article.flair "markdown" %}{{ article.content|markdown }}{% endifequal %}{% ifequal article.flair "" %}{{ article.content }}{% endifequal %}</p>
   <div title="{{article.pub_date}}" alt="{{article.pub_date}}" class="insideInfo">
     <p >{{article.pub_date|timesince}} ago</br>Tags: {% for tag in article.get_tags %}
       <a href="/tag/{{tag}}" alt="{{tag}}" title="{{tag}}">{{tag}}</a>,&nbsp;{% endfor %}</p>
