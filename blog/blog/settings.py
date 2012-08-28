@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'dblog',
     'project',
+    'pages',
     'bbcode',
     'tagging',
 )

@@ -36,6 +36,6 @@ def index(request):
     return render_to_response('article/index.html', {'articles' : articles})
 
 @fix_recaptcha_remote_ip
-def detail(request, article_id):
+def detail(request, slug, article_id):
     a = get_object_or_404(Article, pk=article_id)
     return render(request, 'article/detail.html', {'article' : a})

@@ -6,7 +6,7 @@
 {% block body %}
 {% cache 1800 detailed_post %}
 <div class="shell content dfix">
-  <h3><a href="/{{ article.id }}/">{{article.title}}</a></h3>
+  <h3><a href="/{{ article.slug}}.{{ article.id }}">{{article.title}}</a></h3>
   <p>{% bbcode article.content %}</p>
   <div title="{{article.pub_date}}" alt="{{article.pub_date}}" class="insideInfo">
     <p >{{article.pub_date|timesince}} ago</br>Tags: {% for tag in article.get_tags %}
