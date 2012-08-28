@@ -7,7 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'dblog.views.index'),
-    url(r'^(?P<article_id>\d+)/$', 'dblog.views.detail'),
+    url(r'^(?P<slug>[-\w\d]+).(?P<article_id>\d+)/$', 'dblog.views.detail'),
     url(r'^projects/$', 'project.views.index'),
     url(r'^projects/([-_A-Za-z0-9]+)/$', 'project.views.detail'),
     url(r'^tags/$', 'dblog.views.tags'),
