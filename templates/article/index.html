@@ -4,7 +4,7 @@
     <h3>
       <a href="/{{ article.slug }}.{{ article.id }}">{{article.title}}</a>
     </h3>
-    <p>{% ifequal article.flair "bbcode" %}{% bbcode article.content %}{% endifequal %}{% ifequal article.flair "markdown" %}{{ article.content|markdown }}{% endifequal %}{% ifequal article.flair "" %}{{ article.content }}{% endifequal %}</p>
+    <p>{% ifequal article.flair "bbcode" %}{% bbcode article.content %}{% endifequal %}{% ifequal article.flair "markdown" %}{{ article.content|markdown }}{% endifequal %}{% ifequal article.flair "none" %}{{ article.content }}{% endifequal %}</p>
        <a href="/{{ article.slug }}.{{ article.id }}">...</a></p>
     <div title="{{article.pub_date}}" alt="{{article.pub_date}}" class="insideInfo"> 
       <p  class="alignleft"><p>{{article.pub_date|timesince}} ago</br>Tags: {% for tag in article.get_tags %}
