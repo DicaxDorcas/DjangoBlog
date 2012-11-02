@@ -2,14 +2,13 @@
   <style type='text/css'>.paginationLeft{float:left;border-top:1px solid #d7d7d7;border-bottom:1px solid #d7d7d7;border-right:1px solid #d7d7d7;background:#f8f8f8;color:#888;padding:10px}.paginationRight{float:right;border-top:1px solid #d7d7d7;border-bottom:1px solid #d7d7d7;border-left:1px solid #d7d7d7;background:#f8f8f8;color:#888;padding:10px}</style>{% endblock head %}{% block body %}{% for article in articles %}
   <div class="shell content article"> 
     <h3>
-      <a href="/{{ article.slug }}.{{ article.id }}">{{article.title}}</a>
+      <a href="/blog/{{ article.id }}/">{{article.title}}</a>
     </h3>
-    <p>{% ifequal article.flair "bbcode" %}{% bbcode article.getStub %}{% endifequal %}{% ifequal article.flair "markdown" %}{{ article.getStub|markdown }}{% endifequal %}{% ifequal article.flair "none" %}{{ article.getStub }}{% endifequal %}</p>
-       <a href="/{{ article.slug }}.{{ article.id }}">...</a></p>
+    <p>{% ifequal article.flair "bbcode" %}{% bbcode article.getStub %}{% endifequal %}{% ifequal article.flair "markdown" %}{{ article.getStub|markdown }}{% endifequal %}{% ifequal article.flair "none" %}{{ article.getStub }}{% endifequal %}<a href="/blog/{{ article.id }}/">...</a></p>
     <div title="{{article.pub_date}}" alt="{{article.pub_date}}" class="insideInfo"> 
       <p  class="alignleft"><p>{{article.pub_date|timesince}} ago</br>Tags: {% for tag in article.get_tags %}
       <a href="/tag/{{tag}}" alt="{{tag}}" title="{{tag}}">{{tag}}</a>,&nbsp;{% endfor %}</p></p>
-      <a class="alignright" href="/{{ article.slug }}.{{ article.id }}">{% get_comment_count for article as comment_count %}{{comment_count}} Comments.</a> 
+      <a class="alignright" href="/blog/{{ article.id }}/">{% get_comment_count for article as comment_count %}{{comment_count}} Comments.</a> 
     </div>
   </div>{% endfor %}{% if articles.has_next %}
 

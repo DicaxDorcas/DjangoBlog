@@ -8,8 +8,9 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^projects/$', 'project.views.index'),
     url(r'^projects/([-_A-Za-z0-9]+)/$', 'project.views.detail'),
-    url(r'^$', 'dblog.views.index'),
-    url(r'^(?P<slug>[-\w\d]+).(?P<article_id>\d+)/$', 'dblog.views.detail'),
+    url(r'^$', 'dblog.views.index'), # To be removed.
+    url(r'^blog/$', 'dblog.views.index'),
+    url(r'^blog/([-_A-Za-z0-9]+)/$', 'dblog.views.detail'),
     url(r'^tags/$', 'dblog.views.tags'),
     url(r'^tag/([-_A-Za-z0-9]+)/$','dblog.views.with_tag'),
     url(r'^tag/([-_A-Za-z0-9]+)/page/(d+)/$', 'dblog.views.with_tag' ),

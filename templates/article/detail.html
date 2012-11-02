@@ -4,16 +4,14 @@
   <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
   <script type="text/javascript">stLight.options({publisher: "ur-bc9797a7-347e-633-8cf5-dd9137ed014"});</script>{% endblock head %}
 {% block body %}
-{% cache 1800 detailed_post %}
 <div class="shell content dfix">
-  <h3><a href="/{{ article.slug}}.{{ article.id }}">{{article.title}}</a></h3>
+  <h3><a href="/blog/{{ article.id }}/">{{article.title}}</a></h3>
   <p>{% ifequal article.flair "bbcode" %}{% bbcode article.content %}{% endifequal %}{% ifequal article.flair "markdown" %}{{ article.content|markdown }}{% endifequal %}{% ifequal article.flair "none" %}{{ article.content }}{% endifequal %}</p>
   <div title="{{article.pub_date}}" alt="{{article.pub_date}}" class="insideInfo">
     <p >{{article.pub_date|timesince}} ago</br>Tags: {% for tag in article.get_tags %}
       <a href="/tag/{{tag}}" alt="{{tag}}" title="{{tag}}">{{tag}}</a>,&nbsp;{% endfor %}</p>
   </div>
 </div>
-{% endcache %}
 <div class="interact inner">
   <a href="javascript:hideshow(document.getElementById('reply'))">
     <div class="shell commentcount">
