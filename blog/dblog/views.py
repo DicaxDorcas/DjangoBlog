@@ -22,7 +22,11 @@ def with_tag(request, tag, object_id=None, page=1):
         cache.set(cache_key, result, cache_time)
     return result  
 
-def index(request):
+def index(request): # Temporary function to pass visitors to the blog.
+                    # Will eventually load a 'WhoAmI?' sort of thing.
+    blog(request);
+
+def blog(request):
     latest_article_list = Article.objects.all().order_by('-pub_date')
     paginator = Paginator(latest_article_list, 4, allow_empty_first_page=True)
 
@@ -36,6 +40,6 @@ def index(request):
     return render_to_response('article/index.html', {'articles' : articles})
 
 @fix_recaptcha_remote_ip
-def detail(request, article_id):
+def blogDetail(request, article_id):
     a = get_object_or_404(Article, pk=article_id)
     return render(request, 'article/detail.html', {'article' : a})
