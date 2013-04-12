@@ -1,1 +1,1 @@
-echo "Welcome back!"
+Curl -I http://www.dmi.me.uk
