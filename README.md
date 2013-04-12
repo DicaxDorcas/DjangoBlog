@@ -1,1 +1,1 @@
-Curl -I http://www.dmi.me.uk
+curl -I http://www.dmi.me.uk
