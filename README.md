@@ -1,1 +1,1 @@
-touch dave &
+ping 10.1.0.239 -t 1 
