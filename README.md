@@ -1,1 +1,2 @@
-curl -I http://www.dmi.me.uk
+touch dave &
+"HAHAHA" > dave &
